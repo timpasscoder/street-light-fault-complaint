@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Street Light Complaint</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='form.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<h1 id="complaintForm">
+
+Street Light Complaint Form
+
+</h1>
+
+<div class="marquee">
+
+<p>
+
+Please fill this form to submit complaint for street light fault in your area
+
+</p>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<form
+action="/submit"
+method="POST"
+enctype="multipart/form-data">
+
+<label>
+
+Enter your Name:
+
+</label>
+
+<input
+type="text"
+name="name"
+required>
+
+<label>
+
+Mobile Number:
+
+</label>
+
+<input
+type="text"
+name="phone"
+required>
+
+<label>
+
+Enter Location:
+
+</label>
+
+<input
+type="text"
+name="location"
+required>
+
+<label>
+
+Enter Pincode:
+
+</label>
+
+<input
+type="text"
+name="pincode"
+required>
+
+<label>
+
+Upload Photo:
+
+</label>
+
+<input
+type="file"
+name="photo"
+accept="image/*">
+
+<label>
+
+Describe Problem:
+
+</label>
+
+<textarea
+name="complaint"
+required></textarea>
+
+<button type="submit">
+
+Submit Complaint
+
+</button>
+
+</form>
+
+</div>
+
+<div class="track-box">
+
+<h2>
+
+Track Complaint Status
+
+</h2>
+
+<form
+action="/track"
+method="POST">
+
+<input
+type="text"
+name="cid"
+placeholder="Enter Complaint ID"
+required>
+
+<button>
+
+Track Status
+
+</button>
+
+</form>
+
+</div>
+
+<div
+style="
+text-align:center;
+margin-bottom:40px;
+">
+
+<a href="/admin">
+
+<button
+type="button"
+style="
+padding:15px 30px;
+font-size:18px;
+border:none;
+background:rgb(228, 8, 8);
+color:white;
+border-radius:10px;
+cursor:pointer;
+">
+
+Admin Dashboard
+
+</button>
+
+</a>
+
+</div>
+
+<footer>
+
+<h2 id="slogan">
+
+Ek Kadam Aapka,
+Roshni Sabke Liye
+
+</h2>
+
+<p>
+
+© 2026 Street Light Complaint System
+
+</p>
+
+<p>
+
+Bright Streets,
+Better India
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

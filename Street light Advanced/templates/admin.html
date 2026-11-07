@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<style>
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #8e8383;
+
+    padding: 20px;
+}
+
+h2 {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+th, td {
+
+    border: 1px solid #ccc;
+
+    padding: 12px;
+
+    text-align: center;
+}
+
+th {
+
+    background: black;
+
+    color: white;
+}
+
+img {
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+img:hover {
+
+    transform: scale(1.05);
+}
+
+a {
+
+    text-decoration: none;
+}
+
+.action-btn {
+
+    padding: 8px 15px;
+
+    background: rgb(128, 0, 0);
+
+    color: white;
+
+    border-radius: 5px;
+}
+
+.action-btn:hover {
+
+    background: darkgreen;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2 style="color: rgb(60, 43, 43);">Admin Dashboard</h2>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Location</th>
+<th>Pincode</th>
+<th>Complaint</th>
+<th>Photo</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+{% for c in complaints %}
+
+<tr>
+
+<td>{{ c[0] }}</td>
+
+<td>{{ c[1] }}</td>
+
+<td>{{ c[2] }}</td>
+
+<td>{{ c[3] }}</td>
+
+<td>{{ c[4] }}</td>
+
+<td>{{ c[5] }}</td>
+
+<td>
+
+{% if c[7] %}
+
+<a href="{{ url_for('static',
+filename='uploads/' + c[7]) }}"
+target="_blank">
+
+<img src="{{ url_for('static',
+filename='uploads/' + c[7]) }}"
+width="120"
+style="cursor:pointer;">
+
+</a>
+
+{% endif %}
+
+</td>
+
+<td>{{ c[6] }}</td>
+
+<td>
+
+<a href="/update/{{ c[0] }}"
+class="action-btn">
+
+Mark Fixed
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

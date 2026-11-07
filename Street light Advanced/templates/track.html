@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Track Complaint</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='form.css') }}">
+
+<style>
+
+.track-result {
+
+    margin-top: 100px;
+
+    background: rgba(255,255,255,0.75);
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    width: 80%;
+
+    max-width: 600px;
+
+    text-align: center;
+
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+.track-result h1 {
+
+    color: black;
+}
+
+.track-result p {
+
+    font-size: 20px;
+
+    margin-top: 15px;
+}
+
+.status {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: rgb(43, 10, 232);
+
+    margin-top: 20px;
+}
+
+.back-btn {
+
+    margin-top: 30px;
+
+    padding: 12px 25px;
+
+    background: black;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    display: inline-block;
+}
+
+.back-btn:hover {
+
+    background: #444;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="track-result">
+
+{% if complaint %}
+
+<h1>Complaint Found ✅</h1>
+
+<p>
+<b>Complaint ID:</b>
+{{ complaint[0] }}
+</p>
+
+<p>
+<b>Name:</b>
+{{ complaint[1] }}
+</p>
+
+<p>
+<b>Phone:</b>
+{{ complaint[2] }}
+</p>
+
+<p>
+<b>Location:</b>
+{{ complaint[3] }}
+</p>
+
+<p>
+<b>Pincode:</b>
+{{ complaint[4] }}
+</p>
+
+<p>
+<b>Complaint:</b>
+{{ complaint[5] }}
+</p>
+
+<p class="status">
+<b>Status:</b>
+{{ complaint[6] }}
+</p>
+
+{% else %}
+
+<h1>Complaint Not Found ❌</h1>
+
+<p>
+Please check your Complaint ID and try again.
+</p>
+
+{% endif %}
+
+<br><br>
+
+<a href="/" class="back-btn">
+
+Back To Home
+
+</a>
+
+</div>
+<footer>
+
+    <h2 id="slogan">
+        “Ek Kadam Aapka, Roshni Sabke Liye”
+    </h2>
+
+    <p>
+        © 2026 Street Light Complaint System
+    </p>
+
+    <p>
+        <b>“Bright Streets, Better India”</b>
+    </p>
+
+</footer>
+</body>
+</html>
